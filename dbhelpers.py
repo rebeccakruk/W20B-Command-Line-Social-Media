@@ -23,21 +23,21 @@ def execute_statement(cursor, statement, args=[]):
         cursor.execute(statement, args)
         result = cursor.fetchall()
         return result
-    except mariadb.IntegrityError as e:
-        if "error" in e.msg:
-            print("complete this later")
-        elif "other error" in e.msg:
-            print("complete this later.")
-        else:
-            print("Data was not valid:", e)
-    except mariadb.ProgrammingError as e:
-        if "doesn't have a result set" in e.msg:
+    # except mariadb.IntegrityError as e:
+    #     if "error" in e.msg:
+    #         print("complete this later")
+    #     elif "other error" in e.msg:
+    #         print("complete this later.")
+    #     else:
+    #         print("Data was not valid:", e)
+    # except mariadb.ProgrammingError as e:
+    #     if "doesn't have a result set" in e.msg:
             # means if this happens, don't worry about it, i'm not returning anything. it's an insert statement, not a select statement.
-            return None
-        else:
-            print("syntax error probably", e)
-    except mariadb.OperationalError as e:
-        print("Something went wrong with the connection to the DB")
+        #     return None
+        # else:
+        #     print("syntax error probably", e)
+    # except mariadb.OperationalError as e:
+    #     print("Something went wrong with the connection to the DB")
     except Exception as e:
         print("Something ain't correct:",e)
     
