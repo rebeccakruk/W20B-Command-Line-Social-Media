@@ -38,7 +38,6 @@ def options(user_id):
         else:
             print("Please try again")
 
-
 def new_exploit(user_id): 
     content = input("New exploit: ")
     cursor = connect_db()
@@ -51,14 +50,12 @@ def mine(user_id : int):
     cursor.execute("CALL view_exploits(?)", [input])
     results = cursor.fetchall()
     print("Your exploits: ", results)
-
+    
 def view(user_id):
     input = user_id
     cursor = connect_db()
     cursor.execute("CALL others_exploits(?)", [input])
     results = cursor.fetchall()
     print("Others' exploits: ", results)
-
-
 
 login()
