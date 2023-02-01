@@ -55,7 +55,7 @@ def run_statement(statement, args=[]):
     cursor = connect_db()
     if cursor == None:
         return None
-    results = execute_statement(cursor, statement, args={})
+    results = execute_statement(cursor, statement, args=[])
     if (results == None):
         return None
     close_connection(cursor)
